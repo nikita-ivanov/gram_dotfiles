@@ -1,0 +1,121 @@
+{
+  "preview_tabs": {
+    "enable_preview_from_file_finder": false
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": false
+  },
+  "scrollbar": {"show": "never"},
+  "status_bar": {
+    "experimental.show": true,
+  },
+  "lsp_results_location":"picker",
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": false,
+    "anthropic_retention": false
+  },
+  "ssh_connections": [
+    {
+      "host": "10.148.7.38",
+      "username": "nikita",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/nikita/repos/st-data-platform"],
+        },
+      ],
+    },
+  ],
+  "vertical_scroll_margin": 8,
+  "cli_default_open_behavior": "existing_window",
+  "colorize_brackets": false,
+  "project_panel": {
+    "dock": "left",
+    "scroll_history_lines": 500,
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "cursor_blink": false,
+  "relative_line_numbers": "enabled",
+  "git_panel": {
+    "dock": "left",
+    "tree_view": true,
+  },
+  "vim_mode": true,
+  "vim": {
+    "use_smartcase_find": true
+  },
+  "terminal": {
+    "font_size": 14.0,
+  },
+  "base_keymap": "VSCode",
+  "cursor_shape": "bar",
+  "git": {
+    "inline_blame": {
+      "enabled": false,
+    },
+  },
+  "ui_font_size": 14.0,
+  "buffer_font_size": 15.0,
+  "theme": {
+    "mode": "dark",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Macchiato",
+  },
+  "debugger": {
+    "dock": "bottom",
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+    }
+  },
+  "inlay_hints": { "enabled": false, "show_value_hints": false },
+  "languages": {
+    "Python": {
+      "language_servers": [
+        "!pyrefly",
+        "ty",
+        "!pylsp",
+        "!basedpyright",
+        "!pyright",
+        "...",
+      ],
+    },
+  },
+  "theme_overrides": {
+    "Gruvbox Light": {
+      "accents": [
+        "#cc241dff",
+        "#98971aff",
+        "#d79921ff",
+        "#458588ff",
+        "#b16286ff",
+        "#689d6aff",
+        "#d65d0eff"
+      ],
+      "syntax": {
+        "string": {
+          "color": "#5E3791FF"
+        }
+      },
+      "border": "#121111FF",
+    }
+  }
+}

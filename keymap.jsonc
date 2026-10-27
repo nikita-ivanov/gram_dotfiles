@@ -1,0 +1,154 @@
+[
+  // Disable Zed's default `space` (vim "move forward one char") so it can act as
+  // a leader key, and apply Helix-style `s` word jump.
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space": null,
+      "s": "vim::HelixJumpToWord",
+      "f": "vim::HelixJumpToWord",
+      // "f": "vim::PushFlash",
+    },
+  },
+
+  // Emulate `ctrl-/` from nvim — toggle terminal panel from anywhere.
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-/": "terminal_panel::Toggle",
+    },
+  },
+  // {
+  //   "context": "Picker > Editor",
+  //   "bindings": {
+  //     "ctrl p": "picker::TogglePreview",
+  //   },
+  // },
+  // Global: debugger step-into. f11 is safe to bind unscoped.
+  {
+    "bindings": {
+      "f11": "debugger::StepInto",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight"
+    },
+  },
+
+  // make tab navigation to be ordinal instead of last visited
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-tab": "pane::ActivateNextItem",
+      "ctrl-shift-tab": "pane::ActivatePreviousItem",
+    },
+  },
+
+  // Hover / signature in any editor mode (insert + normal + visual).
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-h": "editor::Hover",
+      "alt-s": "editor::ShowSignatureHelp",
+    },
+  },
+  // navigate between buffers and panes nvim style
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+    }
+  },
+  // Main leader bindings (normal + visual mode in an editor).
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      // File navigation (LazyVim convention)
+      "space f f": [
+        "task::Spawn",
+        { "task_name": "tv:find-files", "reveal_target": "center" },
+      ],
+      // "space f s": "text_finder::Toggle",
+      // "space f g": [
+      //   "task::Spawn",
+      //   { "task_name": "tv:find-in-files", "reveal_target": "center" },
+      // ],
+      "space f r": "tab_switcher::Toggle",
+      "space ,": "tab_switcher::Toggle",
+
+      // Symbols (built-in `gs` for in-file symbols)
+      "space s s": "project_symbols::Toggle",
+
+      // Explorer
+      "space e": "pane::RevealInProjectPanel",
+      "space d u": "debug_panel::Toggle",
+
+      // Copy paths
+      "space y p": "workspace::CopyPath",
+      "space y n": "workspace::CopyRelativePath",
+
+      // Git
+      "space g g": [
+        "task::Spawn",
+        { "task_name": "lazygit", "reveal_target": "center" },
+      ],
+      "space g b": "git::Blame",
+
+      // Function/class navigation (tree-sitter)
+      "] f": "vim::NextMethodStart",
+      "[ f": "vim::PreviousMethodStart",
+      "] F": "vim::NextMethodEnd",
+      "[ F": "vim::PreviousMethodEnd",
+
+      // Git hunk navigation
+      "] h": "editor::GoToHunk",
+      "[ h": "editor::GoToPreviousHunk",
+
+      // Diagnostics navigation
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPreviousDiagnostic",
+
+      // Window splits (LazyVim convention)
+      "space w v": "pane::SplitRight",
+      "space w s": "pane::SplitDown",
+      "space w d": "pane::CloseActiveItem",
+
+      // Misc (from LazyVim)
+      "space b d": "pane::CloseActiveItem",
+      "space /": "pane::DeploySearch",
+      "space space": "file_finder::Toggle",
+      "space c a": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+      "space x x": "diagnostics::Deploy",
+      "space u h": "editor::ToggleInlayHints",
+
+      "g r": "editor::FindAllReferences",
+
+      "space t t": "workspace::NewCenterTerminal"
+    },
+  },
+
+  // Pane navigation from dock/panel.
+  {
+    "context": "Dock || ProjectPanel",
+    "bindings": {
+      "ctrl-w h": "workspace::ActivatePaneLeft",
+      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-w k": "workspace::ActivatePaneUp",
+      "ctrl-w j": "workspace::ActivatePaneDown",
+    },
+  },
+
+  // Project panel specifics.
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "space e": "workspace::ToggleLeftDock",
+      "space c": "project_panel::CollapseAllEntries",
+      "space n": "project_panel::NewFile",
+      "space d": "project_panel::Delete",
+      "space r": "project_panel::Rename",
+    },
+  },
+]
